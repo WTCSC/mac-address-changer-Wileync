@@ -1,8 +1,14 @@
 # MAC Address Changer
+### Shell Script
 ![alt text](image.png)
+### Python
+![alt text](image-1.png)
+
 This shell script is a code that will change the MAC Address on Linux.
+    
+We did this same code in both shell and python to practice both languages.
 ## Why?
-We made this script to practice writing shell script to directly affect the machine and our terminal. The reason one would want to change their MAC Address could be for a plethora of reasons. Most commonly, you would change your MAC Address to appear as a different machine than your actually using. To mask your connection to the machine.
+We made this script to practice writing shell script and python to directly affect the machine and our terminal. The reason one would want to change their MAC Address could be for a plethora of reasons. Most commonly, you would change your MAC Address to appear as a different machine than your actually using. To mask your connection to the machine.
 ## What are some common commands we used?
 ### 1. Finding our Network Interface.
 ```
@@ -17,7 +23,7 @@ wiley-carlin@wiley-carlin-VirtualBox:~/mac-address-changer-Wileync$ ip link list
     link/ether 08:00:27:ea:70:30 brd ff:ff:ff:ff:ff:ff
 ```
 From this we find that our Network is "enp0s3" which we will need later.
-### 2. Making our file Exexutable.
+### 2. Making our file Exexutable. (only for Shell Script)
 ```
 chmod +x (file_name)
 ```
@@ -26,7 +32,8 @@ Or  in our case...
 chmod +x code.sh
 ```
 This takes our file and makes it executable. This allows us to run or execute our script later.
-### 3. Running our script.
+## 3. Running our script.
+### Shell Script:
 To run our script, we use the command...
 ```
 ./(filename) -i (Network Interface) -m (desired new MAC Address)
@@ -34,6 +41,15 @@ To run our script, we use the command...
 Or in our case...
 ```
 ./code.sh -i enp0s3 -m 12:34:56:78:9A:BC
+```
+### Python:
+To run our script, we use the command...
+```
+python3 (filename) -i (Network Interface) -m (desired new MAC Address)
+```
+Or in our case...
+```
+python3 Mac-changer.py -i enp0s3 -m 12:34:56:78:9A:BC
 ```
 ### Possible Returns.
 If "ip link set dev $INTERFACE up" is not true, your returned with...
